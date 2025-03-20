@@ -12,7 +12,7 @@ export const authorizeRoles = (...roles: string[]) => {
     req: AuthenticatedRequest,
     res: ServerResponse,
   ): Promise<boolean> => {
-    const userRole = (req.User as User).role;
+    const userRole = (req.user as User).role;
 
     if (!userRole || !roles.includes(userRole)) {
       res.statusCode = 403;
