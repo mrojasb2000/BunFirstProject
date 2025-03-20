@@ -76,3 +76,18 @@ export const verifyPassword = async (
 ): Promise<boolean> => {
   return compare(password, user.password);
 };
+
+/**
+ * Revoke Token
+ *
+ * @param {string} email - The email of the user.
+ * @return {boolean} - True if the token is revoked, otherwise false.
+ */
+export const revokeToken = (email: string): boolean => {
+  const userFound = users.get(email);
+  if (!userFound) {
+    return false;
+  }
+  users.set(email, { ...userFound, refreshToken: undefined });
+  return true;
+};
