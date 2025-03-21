@@ -64,13 +64,13 @@ export const findUserByEmail = (email: string): User | undefined => {
 };
 
 /**
- * Verify the password of a user.
+ * Validate the password of a user.
  *
  * @param {User} user - The user to verify.
  * @param {string} password - The password to verify.
  * @returns {Promise<boolean>} - True if the password is correct, otherwise false.
  */
-export const verifyPassword = async (
+export const validatePassword = async (
   user: User,
   password: string,
 ): Promise<boolean> => {
